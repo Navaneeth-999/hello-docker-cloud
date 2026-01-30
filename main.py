@@ -7,13 +7,7 @@ from pydantic import BaseModel
 # ------------------ MongoDB ------------------
 MONGODB_URI = os.getenv("MONGODB_URI")
 
-import certifi
-
-client = MongoClient(
-    MONGODB_URI,
-    tls=True,
-    tlsCAFile=certifi.where()
-)
+client = MongoClient(MONGODB_URI)
 db = client["bug_tracker_db"]
 
 # ------------------ App ------------------
