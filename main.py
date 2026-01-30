@@ -2,7 +2,7 @@ import os
 from fastapi import FastAPI, HTTPException
 from pymongo import MongoClient
 from passlib.context import CryptContext
-from pydantic import BaseModel, EmailStr
+from pydantic import BaseModel
 
 # ------------------ MongoDB ------------------
 MONGODB_URI = os.getenv("MONGODB_URI")
@@ -26,9 +26,8 @@ def hash_password(password: str) -> str:
 
 # ------------------ Schemas ------------------
 class UserCreate(BaseModel):
-    email: EmailStr
+    email: str
     password: str
-
 # ------------------ Routes ------------------
 @app.get("/")
 def root():
