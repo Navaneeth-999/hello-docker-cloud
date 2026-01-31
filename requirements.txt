@@ -1,4 +1,3 @@
 fastapi
 uvicorn
-pymongo[srv]==3.12
 passlib[bcrypt]
